@@ -1,0 +1,13 @@
+env:
+    GH_TOKEN: "ENCRYPTED[c4c9bcd74bb28a1da47919b3aa09a7cdb33a996928ec6dd3a12853960fb38e2dd128df92e7f706f8bb189cd9321484ca]"
+
+task:
+  name: "StealthClang Build"
+  timeout_in: 120m  
+  container:
+      dockerfile: Dockerfile
+      cpu: 8
+      memory: 16G
+
+  build_script:
+       - ./build-toolchain.sh

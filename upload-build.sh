@@ -18,7 +18,7 @@ llvm_commit_url="https://github.com/llvm/llvm-project/commit/$llvm_commit"
 binutils_ver="$(ls | grep "^binutils-" | sed "s/binutils-//g")"
 
 # Update Git repository
-git clone "https://Stealth1226:$GH_TOKEN@github.com/stealth-clang" rel_repo
+git clone "https://Stealth1226:$GH_TOKEN@github.com/stealth1226/stealth-clang" rel_repo
 pushd rel_repo
 rm -fr *
 cp -r ../install/* .
@@ -29,6 +29,6 @@ git commit -am "Update to $rel_date build
 
 LLVM commit: $llvm_commit_url
 binutils version: $binutils_ver
-Builder commit: https://github.com/$GH_BUILD_REPO/commit/$builder_commit"
+Builder commit: https://github.com/Stealth1226/stealth-clang/commit/$builder_commit"
 git push
 popd
