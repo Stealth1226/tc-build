@@ -7,6 +7,8 @@ function msg() {
     echo -e "\e[1;32m$*\e[0m"
 }
 
+DIR="$(pwd ...)"
+
 # Build LLVM
 msg "Building LLVM..."
 ./build-llvm.py \
@@ -42,7 +44,7 @@ for bin in $(find install -mindepth 2 -maxdepth 3 -type f -exec file {} \; | gre
 	bin="${bin: : -1}"
 
 	echo "$bin"
-	patchelf --set-rpath "$ORIGIN/../lib" "$bin"
+	patchelf --set-rpath "$DIR/../lib" "$bin"
 done
 
 bash upload-build.sh
