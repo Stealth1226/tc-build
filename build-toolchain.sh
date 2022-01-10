@@ -41,3 +41,5 @@ for bin in $(find install -mindepth 2 -maxdepth 3 -type f -exec file {} \; | gre
 	echo "$bin"
 	patchelf --set-rpath "$ORIGIN/../lib" "$bin"
 done
+
+bash upload-build.sh
