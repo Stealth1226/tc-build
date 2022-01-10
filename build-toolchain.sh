@@ -11,6 +11,9 @@ function msg() {
 msg "Building LLVM..."
 ./build-llvm.py \
 	--clang-vendor "Stealth" \
+	--defines "LLVM_PARALLEL_COMPILE_JOBS=$(nproc) LLVM_PARALLEL_LINK_JOBS=$(nproc) CMAKE_C_FLAGS=-O3 CMAKE_CXX_FLAGS=-O3" \
+	--lto full \
+	--pgo kernel-defconfig \
 	--projects "clang;lld;polly" \
 	--targets "ARM;AArch64" \
 	--shallow-clone \
